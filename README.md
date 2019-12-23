@@ -1,10 +1,25 @@
 # clj-ssdp
 
-A Clojure library designed to ... well, that part is up to you.
+[![Clojars Project](https://img.shields.io/clojars/v/clj-ssdp.svg)](https://clojars.org/clj-ssdp)
 
 ## Usage
 
-FIXME
+```clojure
+(require '[clj-ssdp.client :refer :all])
+
+;discover all the ssdp devices on your network
+(discover)
+;you can set a timeout in milliseconds
+(discover 1000)
+;you can set a timeout and a search target as well
+(discover 1000 "urn:schemas-upnp-org:device:MediaRenderer:1")
+
+
+;same thing for discover-one, discover-one returns the first ssdp device
+(discover-one)
+(discover-one 1000)
+(discover-one 1000 "urn:schemas-upnp-org:device:MediaRenderer:1")
+```
 
 ## License
 
