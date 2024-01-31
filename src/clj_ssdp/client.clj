@@ -50,7 +50,7 @@
 (defn discover
   ([^long timeout ^String search-target]
    {:pre [(pos-int? timeout)]}
-   (let [msearch (str "M-SEARCH * HTTP/1.1\nHost: 239.255.255.250:1900\nMAN: ssdp:discover\nST: " search-target "\n")
+   (let [msearch (str "M-SEARCH * HTTP/1.1\nHost: 239.255.255.250:1900\nMAN: \"ssdp:discover\"\nST: " search-target "\n")
          msearch (str msearch "MX: " (long (/ timeout 1000)) "\n\r\n")
          ^bytes send-data (.getBytes msearch)
          ^bytes receive-data (byte-array 1024)
